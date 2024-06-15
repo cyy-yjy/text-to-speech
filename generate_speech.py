@@ -19,8 +19,8 @@ async def amain(VOICE,TEXT,OUTPUT_FILE) -> None:
     await communicate.save(OUTPUT_FILE)#异步保存
     print('音频文件已生成')
 #创建一个列表，它包含各个template的文件名
-voice_list=['zh-CN-XiaoxiaoNeural','zh-CN-XiaoyiNeural','zh-CN-liaoning-XiaobeiNeural',
-            'zh-HK-WanLungNeural','zh-TW-YunJheNeural','zu-ZA-ThembaNeural']
+voice_list=['zh-CN-XiaoxiaoNeural','zh-HK-HiuGaaiNeural','zh-CN-liaoning-XiaobeiNeural',
+            'zh-HK-WanLungNeural','zh-CN-YunxiNeural','zh-CN-YunjianNeural']
 #生成的文件所存放的路径
 output_dir='D:/vs_temp/news-front/news/src/assets/output'
 @app.route("/get-speech", methods=['POST'])
