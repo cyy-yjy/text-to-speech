@@ -22,7 +22,7 @@ async def amain(VOICE,TEXT,OUTPUT_FILE) -> None:
 voice_list=['zh-CN-XiaoxiaoNeural','zh-CN-XiaoyiNeural','zh-CN-liaoning-XiaobeiNeural',
             'zh-HK-WanLungNeural','zh-TW-YunJheNeural','zu-ZA-ThembaNeural']
 #生成的文件所存放的路径
-output_dir='output'
+output_dir='D:/vs_temp/news-front/news/src/assets/output'
 @app.route("/get-speech", methods=['POST'])
 def get_speech():
     print(1)
@@ -44,10 +44,10 @@ def get_speech():
         if not os.path.isdir(output_dir):
             os.makedirs(output_dir)
         file_prefix = datetime.now().strftime('%H_%M_%S')
-        output_filename = output_dir + '/' +file_prefix + '.mp4'
+        output_filename = output_dir+'/'+file_prefix + '.mp4'
         asyncio.run(amain(voice,text,output_filename))
         print('音频文件已生成')
-        response['response']['data'] = output_filename
+        response['response']['data'] = file_prefix + '.mp4'
         response['response']['isError'] = False
     except Exception as e:
         response['response']['msg'] = str(e)
